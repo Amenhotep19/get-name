@@ -2,6 +2,14 @@ import { expect } from 'chai';
 import getName from '../src/get-name';
 
 describe('get-name', () => {
+    it('should identify null', () => {
+        expect(getName(null)).to.equal('null');
+    });
+
+    it('should identify undefined', () => {
+        expect(getName(undefined)).to.equal('undefined');
+    });
+
     it('should return the name of a named function', () => {
         function foo() {}
         const bar = function() {}; // eslint-disable-line func-names
