@@ -1,5 +1,7 @@
 # getName
 
+[![GitHub version](https://badge.fury.io/gh/ryanmorr%2Fget-name.svg)](https://badge.fury.io/gh/ryanmorr%2Fget-name) [![Build Status](https://travis-ci.org/ryanmorr/get-name.svg)](https://travis-ci.org/ryanmorr/get-name) ![Size](https://badge-size.herokuapp.com/ryanmorr/get-name/master/src/get-name.js.svg?color=blue&label=file%20size)
+
 > Get the name of an object
 
 ## Usage
