@@ -5,23 +5,11 @@ const toString = {}.toString;
 const functionNameRe = /function ([^\(]+)?\(/;
 
 /**
- * Get the internal [[Class]] of an
- * object
- *
- * @param {*} obj
- * @return {String}
- * @api public
- */
-function getType(obj) {
-    return toString.call(obj).slice(8, -1);
-}
-
-/**
  * Get the name of a function
  *
  * @param {Function} fn
  * @return {String}
- * @api public
+ * @api private
  */
 function getFunctionName(fn) {
     // Support the non-standard `displayName`
@@ -47,18 +35,14 @@ function getFunctionName(fn) {
  * @api public
  */
 export default function getName(obj) {
-    if (obj === null) {
-        return 'null';
+    const type = toString.call(obj).slice(8, -1);
+    switch (type) {
+        case 'Null':
+        case 'Undefined':
+            return type.toLowerCase();
+        case 'Function':
+            return getFunctionName(obj);
+        default:
+            return getFunctionName(obj.constructor);
     }
-    if (obj === undefined) {
-        return 'undefined';
-    }
-    const type = getType(obj);
-    if (type === 'Function') {
-        return getFunctionName(obj);
-    }
-    if (type === 'Object') {
-        return getFunctionName(obj.constructor);
-    }
-    return type;
 }
