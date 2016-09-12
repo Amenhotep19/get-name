@@ -13,6 +13,17 @@ function getType(obj) {
 }
 
 /**
+ * Get the name of a function
+ *
+ * @param {Function} fn
+ * @return {String}
+ * @api public
+ */
+function getFunctionName(fn) {
+    return fn.name || '';
+}
+
+/**
  * Get the name of an object
  *
  * @param {*} obj
@@ -28,10 +39,10 @@ export default function getName(obj) {
     }
     const type = getType(obj);
     if (type === 'Function') {
-        return obj.name;
+        return getFunctionName(obj);
     }
     if (type === 'Object') {
-        return obj.constructor.name;
+        return getFunctionName(obj.constructor);
     }
     return type;
 }

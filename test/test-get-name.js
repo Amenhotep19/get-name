@@ -24,4 +24,10 @@ describe('get-name', () => {
         const foo = new Foo();
         expect(getName(foo)).to.equal('Foo');
     });
+
+    it('should return an empty string for anonymous functions', () => {
+        // eslint-disable-next-line func-names, prefer-arrow-callback
+        expect(getName(function() {})).to.equal('');
+        expect(getName(() => {})).to.equal('');
+    });
 });
