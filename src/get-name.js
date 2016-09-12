@@ -1,3 +1,17 @@
+const toString = {}.toString;
+
+/**
+ * Get the internal [[Class]] of an
+ * object
+ *
+ * @param {*} obj
+ * @return {String}
+ * @api public
+ */
+function getType(obj) {
+    return toString.call(obj).slice(8, -1);
+}
+
 /**
  * Get the name of an object
  *
@@ -12,7 +26,7 @@ export default function getName(obj) {
     if (obj === undefined) {
         return 'undefined';
     }
-    if (typeof obj === 'function') {
+    if (getType(obj) === 'Function') {
         return obj.name;
     }
     return '';
