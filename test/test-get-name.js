@@ -25,6 +25,12 @@ describe('get-name', () => {
         expect(getName(foo)).to.equal('Foo');
     });
 
+    it('should support the displayName property if it is defined', () => {
+        const foo = function() {}; // eslint-disable-line func-names
+        foo.displayName = 'bar';
+        expect(getName(foo)).to.equal('bar');
+    });
+
     it('should return an empty string for anonymous functions', () => {
         // eslint-disable-next-line func-names, prefer-arrow-callback
         expect(getName(function() {})).to.equal('');

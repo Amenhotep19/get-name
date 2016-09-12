@@ -24,6 +24,11 @@ function getType(obj) {
  * @api public
  */
 function getFunctionName(fn) {
+    // Support the non-standard `displayName`
+    // property if it exists
+    if (fn.displayName) {
+        return fn.displayName;
+    }
     if (fn.name) {
         return fn.name;
     }
