@@ -18,4 +18,10 @@ describe('get-name', () => {
         expect(getName(bar)).to.equal('bar');
         expect(getName(obj.baz)).to.equal('baz');
     });
+
+    it('should return the name of an instance\'s constructor function', () => {
+        function Foo() {}
+        const foo = new Foo();
+        expect(getName(foo)).to.equal('Foo');
+    });
 });

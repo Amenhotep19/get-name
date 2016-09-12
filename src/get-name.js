@@ -26,8 +26,12 @@ export default function getName(obj) {
     if (obj === undefined) {
         return 'undefined';
     }
-    if (getType(obj) === 'Function') {
+    const type = getType(obj);
+    if (type === 'Function') {
         return obj.name;
     }
-    return '';
+    if (type === 'Object') {
+        return obj.constructor.name;
+    }
+    return type;
 }
