@@ -2,27 +2,35 @@ import { expect } from 'chai';
 import getName from '../src/get-name';
 
 describe('get-name', () => {
-    it('should identify null', () => {
+    it('should identify null and undefined', () => {
         expect(getName(null)).to.equal('null');
-    });
-
-    it('should identify undefined', () => {
         expect(getName(undefined)).to.equal('undefined');
     });
 
-    it('should return the name of a named function', () => {
+    it('should return the name of a named function/class/constructor', () => {
         function foo() {}
         const bar = function() {}; // eslint-disable-line func-names
         const obj = {baz() {}};
+        class qux {}
         expect(getName(foo)).to.equal('foo');
         expect(getName(bar)).to.equal('bar');
         expect(getName(obj.baz)).to.equal('baz');
+        expect(getName(qux)).to.equal('qux');
+        expect(getName(Array)).to.equal('Array');
+        expect(getName(Date)).to.equal('Date');
+        expect(getName(Boolean)).to.equal('Boolean');
     });
 
     it('should return the name of an instance\'s constructor function', () => {
         function Foo() {}
+        class Bar {}
         const foo = new Foo();
+        const bar = new Bar();
         expect(getName(foo)).to.equal('Foo');
+        expect(getName(bar)).to.equal('Bar');
+        expect(getName([])).to.equal('Array');
+        expect(getName({})).to.equal('Object');
+        expect(getName(true)).to.equal('Boolean');
     });
 
     it('should support the displayName property if it is defined', () => {
