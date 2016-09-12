@@ -1,4 +1,8 @@
+/**
+ * Common variables
+ */
 const toString = {}.toString;
+const functionNameRe = /function ([^\(]+)?\(/;
 
 /**
  * Get the internal [[Class]] of an
@@ -20,7 +24,14 @@ function getType(obj) {
  * @api public
  */
 function getFunctionName(fn) {
-    return fn.name || '';
+    if (fn.name) {
+        return fn.name;
+    }
+    const match = functionNameRe.exec(fn.toString());
+    if (match && match[1]) {
+        return match[1];
+    }
+    return '';
 }
 
 /**
