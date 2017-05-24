@@ -1,6 +1,10 @@
 # getName
 
-[![GitHub version](https://badge.fury.io/gh/ryanmorr%2Fget-name.svg)](https://badge.fury.io/gh/ryanmorr%2Fget-name) [![Build Status](https://travis-ci.org/ryanmorr/get-name.svg)](https://travis-ci.org/ryanmorr/get-name) ![Size](https://badge-size.herokuapp.com/ryanmorr/get-name/master/src/get-name.js.svg?color=blue&label=file%20size)
+[![Version Badge][version-image]][project-url]
+[![Build Status][build-image]][build-url]
+[![Dependencies][dependencies-image]][project-url]
+[![License][license-image]][license-url]
+[![File Size][file-size-image]][project-url]
 
 > Get the name of an object
 
@@ -71,3 +75,12 @@ gulp test
 ## License
 
 This project is dedicated to the public domain as described by the [Unlicense](http://unlicense.org/).
+
+[project-url]: https://github.com/ryanmorr/get-name
+[version-image]: https://badge.fury.io/gh/ryanmorr%2Fget-name.svg
+[build-url]: https://travis-ci.org/ryanmorr/get-name
+[build-image]: https://travis-ci.org/ryanmorr/get-name.svg
+[dependencies-image]: https://david-dm.org/ryanmorr/get-name.svg
+[license-image]: https://img.shields.io/badge/license-Unlicense-blue.svg
+[license-url]: UNLICENSE
+[file-size-image]: https://badge-size.herokuapp.com/ryanmorr/get-name/master/dist/get-name.min.js.svg?color=blue&label=file%20size
